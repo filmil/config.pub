@@ -85,16 +85,16 @@ cd "${TMP_DIR}"
     chmod go-rwx .ssh
     cd .ssh
     if [[ "${SSH_SKIP_KEYGEN}" != "yes" ]]; then
-        if [[ -f "./ed25519" ]]; then
-            echo "ERROR: key file already exists"
-            exit 1
-        fi
+        rm -f "${KEYFILE}" "${KEYFILE}.pub"
         ssh-keygen -t ed25519 -N "${SSH_PASSPHRASE:-}" -f "${KEYFILE}"
     fi
+    cat <<EOF > "${INSTALLDIR}/.ssh/config"
+Host github.com
+    Hostname github.com
+    IdentityFile ~/.ssh/${KEYFILE}
+EOF
+
     if [[ "${GH_SKIP_KEY_UPLOAD:-}" != "yes" ]]; then
-        if [[ "${GH_ACCESS_TOKEN:-}" == "" ]]; then
-            echo "ERROR: set github access token to GH_ACCESS_TOKEN".
-        fi
         gh auth login \
             --hostname github.com \
             -p ssh \

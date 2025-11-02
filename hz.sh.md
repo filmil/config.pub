@@ -1,7 +1,10 @@
+```sh
 #! /usr/bin/env bash
 
-#] # Hetzner setup
+```
+# Hetzner setup
 
+```sh
 useradd
 #!/bin/bash
 
@@ -85,3 +88,4 @@ exit 0
 
 
 # vim: set ft=bash
+```

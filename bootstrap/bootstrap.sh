@@ -1,7 +1,7 @@
 #] # Bootstrapping script
 #! /bin/sh
 
-#] [![test](https://github.com/filmil/config/actions/workflows/test.yml/badge.svg)](https://github.com/filmil/config/actions/workflows/test.yml)
+#] [![test](https://github.com/filmil/config.pub/actions/workflows/test.yml/badge.svg)](https://github.com/filmil/config.pub/actions/workflows/test.yml)
 #]
 #] Use the following easy script to start. This is a boostrap loader for my
 #] config and dotfiles. It requires internet access. It must be public.

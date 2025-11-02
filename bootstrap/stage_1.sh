@@ -97,8 +97,7 @@ EOF
     if [[ "${GH_SKIP_KEY_UPLOAD:-}" != "yes" ]]; then
         gh auth login \
             --hostname github.com \
-            -p ssh \
-            --with-token
+            -p ssh
         gh ssh-key add ed25519.pub --title "${MACHINE}"
     fi
 )

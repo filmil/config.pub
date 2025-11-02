@@ -1,0 +1,6 @@
+.nvimlog
+*-stamp
+*.stamp
+bazel-*
+.env
+

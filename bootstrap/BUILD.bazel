@@ -1,0 +1,31 @@
+load("@aspect_bazel_lib//lib:write_source_files.bzl", "write_source_files")
+load("@lit2md//build:macros.bzl", "lit2md2")
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+
+package(default_visibility = [ "//visibility:public" ])
+
+lit2md2(
+    name = "stage_1_md",
+    src = "stage_1.sh",
+    out = "stage_1.sh.md",
+)
+
+sh_binary(
+    name = "bootstrap",
+    srcs = [
+        "bootstrap.sh",
+    ],
+)
+
+sh_binary(
+    name = "stage_1",
+    srcs = [
+        "stage_1.sh",
+    ],
+)
+
+lit2md2(
+    name = "readme",
+    src = "bootstrap.sh",
+    out = "README.md",
+)

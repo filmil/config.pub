@@ -1,0 +1,35 @@
+name: Release
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: "43 6 * * 0"
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup bazel
+        uses: bazel-contrib/setup-bazel@0.15.0
+        with:
+          bazelisk-cache: true
+          disk-cache: ${{ github.workflow }}
+          repository-cache: true
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: "Build bootstrap scripts"
+        run: "bazel build //bootstrap/..."
+      - name: "Deploy bootstrap scripts"
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          external_repository: filmil/hdlfactory.com.template
+          publish_dir: ./bazel-bin/bootstrap
+          destination_dir: static/config
+          publish_branch: main
+          deploy_key: "${{ secrets.DEPLOY_KEY }}"
+      - name: "Kill ssh-agent, see: https://github.com/peaceiris/actions-gh-pages/issues/909"
+        run: "killall ssh-agent"
+

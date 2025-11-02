@@ -1,0 +1,11 @@
+load("@aspect_bazel_lib//lib:write_source_files.bzl", "write_source_files")
+load("@lit2md//build:macros.bzl", "lit2md2")
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+
+write_source_files(
+    name = "update_md",
+    files = {
+        "README.md": "//bootstrap:readme",
+        "stage_1.sh.md": "//bootstrap:stage_1_md",
+    },
+)

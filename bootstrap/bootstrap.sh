@@ -10,7 +10,7 @@
 
 sudo apt-get --assume-yes install wget && \
 wget --output-document=stage_1.sh \
-    wget https://hdlfactory.com/config/stage_1.sh
+    wget https://hdlfactory.com/config/stage_1 -O stage_1.sh
 chmod u+x stage_1.sh && ./stage_1.sh
 
 #] This script is set up so that it's easy to cut and paste from a web page.

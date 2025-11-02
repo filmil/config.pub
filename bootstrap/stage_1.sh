@@ -64,7 +64,7 @@ set -x
 #] Install the minimum scriptage. We need `ssh `to generate keys, and `wget` to
 #] download the github cli. Github cli is used to access the configuration repo
 #] which is where "stage 2" is located.
-sudo apt-get --assume-yes install ssh wget
+sudo apt-get update && sudo apt-get --assume-yes install ssh wget
 GH_BINARY_DEB="https://github.com/cli/cli/releases/download/v2.82.1/gh_2.82.1_linux_amd64.deb"
 TMP_DIR="$(mktemp --tmpdir -d config.stage_1.d-XXXXXXX)"
 echo "INFO: Using temporary dir: ${TMP_DIR}"

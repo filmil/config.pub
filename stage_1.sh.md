@@ -137,7 +137,7 @@ Finally, install the rest of the software and stop, for now.
     echo "INFO: Loading stage 2"
     mkdir -p "${CONFIGDIR}"
     cd "${CONFIGDIR}"
-    sudo apt-get install apt make git puppet stow cmake ssh
+    sudo apt-get --assume-yes install apt make git puppet stow cmake ssh
     git clone git@github.com:filmil/config filmil@gmail.com
 
     echo "INFO: Loaded stage 2 - proceed manually"

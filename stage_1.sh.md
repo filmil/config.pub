@@ -85,7 +85,7 @@ download the github cli. Github cli is used to access the configuration repo
 which is where "stage 2" is located.
 
 ```sh
-sudo apt-get --assume-yes install ssh wget
+sudo apt-get update && sudo apt-get --assume-yes install ssh wget
 GH_BINARY_DEB="https://github.com/cli/cli/releases/download/v2.82.1/gh_2.82.1_linux_amd64.deb"
 TMP_DIR="$(mktemp --tmpdir -d config.stage_1.d-XXXXXXX)"
 echo "INFO: Using temporary dir: ${TMP_DIR}"
@@ -124,8 +124,7 @@ EOF
     if [[ "${GH_SKIP_KEY_UPLOAD:-}" != "yes" ]]; then
         gh auth login \
             --hostname github.com \
-            -p ssh \
-            --with-token
+            -p ssh
         gh ssh-key add ed25519.pub --title "${MACHINE}"
     fi
 )

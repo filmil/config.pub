@@ -14,7 +14,7 @@ It is also available at [bootstrap.sh](./bootstrap/bootstrap.sh)
 ```sh
 sudo apt-get --assume-yes install wget && \
 wget --output-document=stage_1.sh \
-    wget https://hdlfactory.com/config/stage_1.sh
+    wget https://hdlfactory.com/config/stage_1 -O stage_1.sh
 chmod u+x stage_1.sh && ./stage_1.sh
 
 ```

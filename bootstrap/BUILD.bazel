@@ -29,3 +29,16 @@ lit2md2(
     src = "bootstrap.sh",
     out = "README.md",
 )
+
+sh_binary(
+    name = "hz",
+    srcs = [
+        "hz.sh",
+    ],
+)
+
+lit2md2(
+    name = "hz_sh_md",
+    src = "hz.sh",
+    out = "hz.sh.md",
+)

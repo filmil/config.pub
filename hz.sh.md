@@ -40,6 +40,26 @@ if [ $? -ne 0 ]; then
     # For this script, we'll continue to set up SSH keys.
 fi
 
+echo "Attempting to add user '$USERNAME' to sudo group (sudo/wheel)..."
+SUDO_GROUP=""
+if getent group sudo >/dev/null 2>&1; then
+    SUDO_GROUP="sudo"
+elif getent group wheel >/dev/null 2>&1; then
+    SUDO_GROUP="wheel"
+fi
+
+if [ -n "$SUDO_GROUP" ]; then
+    usermod -aG "$SUDO_GROUP" "$USERNAME"
+    if [ $? -ne 0 ]; then
+        echo "Warning: Failed to add user to '$SUDO_GROUP' group."
+    else
+        echo "Successfully added user '$USERNAME' to '$SUDO_GROUP' group."
+    fi
+else
+    echo "Warning: Neither 'sudo' nor 'wheel' group found. Skipping sudo privileges."
+fi
+
+
 # Check if the root authorized_keys file exists
 if [ ! -f "$ROOT_SSH_KEYS" ]; then
     echo "Warning: '$ROOT_SSH_KEYS' not found. Skipping SSH key copy."

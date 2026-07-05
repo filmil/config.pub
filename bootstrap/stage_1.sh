@@ -6,9 +6,17 @@
 #] you need to prepopulate.
 #]
 #] e.g.
-
+#]
+#]
+#] The Github public key which allows reading the private parts of the
+#] bootstrap.
+#]
 #] ```bash
 #] GH_PUBLIC_KEY="..."
+#] ```
+#]
+#] Rest are optional:
+#]
 #] INSTALLDIR="..." # default: ${HOME}.
 #] SSH_PASSPHRASE=""
 #] CONFIG_TEST_PRINT=""

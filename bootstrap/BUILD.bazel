@@ -1,4 +1,4 @@
-load("@aspect_bazel_lib//lib:write_source_files.bzl", "write_source_files")
+load("@bazel_lib//lib:write_source_files.bzl", "write_source_files")
 load("@lit2md//build:macros.bzl", "lit2md2")
 load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
 

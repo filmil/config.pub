@@ -3,10 +3,10 @@
 #] # filmil's configuration files
 #]
 #] The environment file (default: `.env` in current dir) contains secrets that
-#] you need to prepopulate.
+#] you need to prepopulate. If you don't need any values, you can just create
+#] an empty file.
 #]
 #] e.g.
-#]
 #]
 #] The Github public key which allows reading the private parts of the
 #] bootstrap.
@@ -18,8 +18,8 @@
 #] Rest are optional:
 #]
 #] INSTALLDIR="..." # default: ${HOME}.
-#] SSH_PASSPHRASE=""
-#] CONFIG_TEST_PRINT=""
+#] SSH_PASSPHRASE="" # default: optional.
+#] CONFIG_TEST_PRINT="" # default: optional.
 #] ```
 #]
 #] ----
